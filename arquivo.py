@@ -1,10 +1,10 @@
 # txt (bloco de notas)
-# with open ("my_arquivo.txt", "w") as arquivo:   # W serve para escrever
-#     arquivo.write("dorDeCabeça\n")
-#     arquivo.write("aaaaaaaaaaa")
+with open ("my_arquivo.txt", "w") as arquivo:   # W serve para escrever
+    arquivo.write("VouTirar10\n")
+    arquivo.write("oiMarciaTenhaPiedadeDessaPobreAlma")
 
-# with open("my_arquivo.txt", "r") as arquivo:  # R serve para ler
-#     print(arquivo.read())
+with open("my_arquivo.txt", "r") as arquivo:  # R serve para ler
+    print(arquivo.read())
 
 
 
