@@ -3,30 +3,40 @@ from tkinter import messagebox
 from tkinter import PhotoImage
 import pandas as pd
 import random
+import os
+
+# Ajusta o diretório para o local do script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
+
+# Verifica o diretório de trabalho atual
+print("Diretório atual:", os.getcwd())
+
+# Lista os arquivos disponíveis para depuração
+print("Arquivos disponíveis:", os.listdir())
 
 # Lista de perguntas
 questions = [
-    ["Qual é a capital da França?", "Paris", "Londres", "Berlim", "Roma", 1],
-    ["Qual é o resultado de 8 + 5?", "12", "13", "15", "18", 2],
-    ["Quem pintou a Mona Lisa?", "Picasso", "Da Vinci", "Van Gogh", "Warhol", 2],
-    ["Quanto é 6 multiplicado por 7?", "36", "42", "48", "54", 2],
-    ["Qual é o maior planeta do sistema solar?", "Marte", "Saturno", "Júpiter", "Vênus", 3],
-    ["Quem escreveu a obra 'Dom Quixote'?", "Machado de Assis", "Miguel de Cervantes", "Jorge Luis Borges", "Gabriel García Márquez", 2],
-    ["Qual é a fórmula química da água?", "H2O", "CO2", "NaCl", "CH4", 1],
-    ["Quem foi o primeiro presidente dos Estados Unidos?", "George Washington", "Abraham Lincoln", "Thomas Jefferson", "John F. Kennedy", 1],
-    ["Qual é o resultado de 4 ao cubo?", "16", "32", "64", "128", 3],
-    ["Qual é a capital da Rússia?", "Moscou", "São Petersburgo", "Kiev", "Varsóvia", 1],
-    ["Quem descobriu a teoria da relatividade?", "Isaac Newton", "Galileu Galilei", "Albert Einstein", "Nikola Tesla", 3],
-    ["Qual é o símbolo químico do ouro?", "Au", "Ag", "Cu", "Fe", 1],
-    ["Quem foi o autor da obra 'Romeu e Julieta'?", "William Shakespeare", "Charles Dickens", "Mark Twain", "Jane Austen", 1],
-    ["Qual é a capital do Brasil?", "Rio de Janeiro", "Brasília", "São Paulo", "Salvador", 2],
-    ["Qual é o resultado de 9 dividido por 3?", "1", "2", "3", "4", 3],
-    ["Quem pintou a obra 'A Noite Estrelada'?", "Leonardo da Vinci", "Michelangelo", "Salvador Dalí", "Vincent van Gogh", 4],
-    ["Qual é o maior oceano do mundo?", "Atlântico", "Índico", "Pacífico", "Ártico", 3],
-    ["Qual é o resultado de 2 elevado a 8?", "8", "16", "64", "256", 4],
-    ["Quem escreveu a obra '1984'?", "George Orwell", "Aldous Huxley", "Ernest Hemingway", "F. Scott Fitzgerald", 1],
-    ["Qual é o resultado de 15 menos 7?", "5", "6", "7", "8", 3],
-    ["Quem foi o pintor do quadro 'A Última Ceia'?", "Pablo Picasso", "Salvador Dalí", "Michelangelo", "Leonardo da Vinci", 4]
+    ["Qual é o comando para exibir algo no console em Python?", "console.log()", "echo", "print()", "System.out.println()", 3],
+    ["Como você cria uma lista em Python?", "list = ()", "list = {}", "list = ||", "list = []", 4],
+    ["Qual é o operador de atribuição em Python?", "==", "=", "===", ":=", 2],
+    ["Como você declara uma função em Python?", "func myFunc():", "function myFunc():", "def myFunc():", "fn myFunc():", 3],
+    ["Como você inicia um loop `for` em Python?", "for i to n:", "foreach i in range():", "for i in range():", "for (i=0; i<n; i++):", 3],
+    ["Qual é a função usada para obter o comprimento de uma lista?", "count()", "size()", "length()", "len()", 4],
+    ["Qual é o tipo de dado para números decimais em Python?", "float", "int", "decimal", "double", 1],
+    ["Como você cria uma string em Python?", "string(texto)", "{texto}", "'texto'", "[texto]", 3],
+    ["Qual é a palavra-chave para criar uma classe em Python?", "Class", "object", "define", "class", 4],
+    ["Como você importa um módulo em Python?", "import module", "use module", "require module", "include module", 1],
+    ["Qual função é usada para ler a entrada do usuário no console?", "read()", "input()", "get()", "scanf()", 2],
+    ["Qual é o valor de `5 // 2` em Python?", "2.5", "3", "3.5", "2", 4],
+    ["Como você define uma variável global dentro de uma função?", "let var", "var global", "global var", "global: var", 3],
+    ["Qual é a estrutura correta para um bloco `try` em Python?", "try: except:", "try {} catch {}", "try {} except {}", "try: catch:", 1],
+    ["Qual é o método usado para adicionar um elemento em uma lista?", "append()", "insert()", "add()", "push()", 1],
+    ["Qual biblioteca padrão é usada para trabalhar com datas em Python?", "calendar", "date", "time", "datetime", 4],
+    ["Como você converte uma string para um número inteiro em Python?", "float()", "int()", "str()", "toInt()", 2],
+    ["Como você remove um elemento de uma lista em Python?", "pop()", "del", "remove()", "delete()", 3],
+    ["Qual é o resultado de `2 ** 3` em Python?", "6", "12", "8", "9", 3],
+    ["Qual é a palavra-chave usada para encerrar um loop?", "stop", "exit", "end", "break", 4]
 ]
 
 # Criar DataFrame do pandas
@@ -34,7 +44,6 @@ df = pd.DataFrame(questions, columns=["Pergunta", "Opção 1", "Opção 2", "Op�
 
 # Salvar no arquivo do Excel
 df.to_excel("questions.xlsx", index=False)
-
 print("Perguntas inseridas com sucesso no arquivo questions.xlsx!")
 
 df = pd.read_excel('questions.xlsx')
@@ -43,8 +52,21 @@ questions = df.sample(n=10).values.tolist()
 window = tk.Tk()
 window.title("Quiz")
 window.geometry("400x450")
+
+# Carrega as imagens após a criação da janela
+try:
+    acerto_img = tk.PhotoImage(file="acerto_img.png")
+    erro_img = tk.PhotoImage(file="erro_img.png")
+    print("Imagens carregadas com sucesso.")
+except Exception as e:
+    print("Erro ao carregar imagens:", e)
+    exit()
+
 current_question = 0
 score = 0
+
+feedback_label = tk.Label(window)
+feedback_label.pack(pady=20)
 
 # Função para verificar a resposta
 def check_answer(answer):
@@ -52,13 +74,23 @@ def check_answer(answer):
 
     if answer == correct_answer.get():
         score += 1
-        print("acertou!!!")
+        feedback_label.config(image=acerto_img)
+    else:
+        feedback_label.config(image=erro_img)
+
+    # Aguarda 1 segundo antes de passar para a próxima pergunta
+    window.after(1000, next_question)
+
+def next_question():
+    global current_question
 
     current_question += 1
 
+    # Limpa o feedback visual
+    feedback_label.config(image="")
+
     if current_question < len(questions):
         display_question()
-        
     else:
         show_result()
 
@@ -71,6 +103,7 @@ def display_question():
     option3_btn.config(text=option3, state=tk.NORMAL, command=lambda: check_answer(3))
     option4_btn.config(text=option4, state=tk.NORMAL, command=lambda: check_answer(4))
     correct_answer.set(answer)
+
 # Função para exibir o resultado final
 def show_result():
     messagebox.showinfo("Quiz Finalizado", f"Parabéns! Você completou o quiz.\n\nPontuação final: {score}/{len(questions)}")
@@ -93,14 +126,11 @@ def play_again():
     option4_btn.config(state=tk.NORMAL)
     play_again_btn.pack_forget()
 
-
-
-    background_color = "#ECECEC"
+background_color = "#ECECEC"
 text_color = "#333333"
 button_color = "#4CAF50"
 button_text_color = "#FFFFFF"
-window.option_add('*Font', 'Arial') 
-
+window.option_add('*Font', 'Arial')
 
 question_label = tk.Label(window, text="", wraplength=380, fg=text_color, font=("Arial", 12, "bold"))
 question_label.pack(pady=20)
