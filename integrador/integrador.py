@@ -29,7 +29,7 @@ df["Esteira3_Status"] = df["esteira3"].apply(classificar)
 arquivo_txt = 'Informações_Esteiras.txt'
 df.to_string(buf=open(arquivo_txt, 'w'), index=False)
 print(f"Os dados dos produtos foram criados com sucesso: '{arquivo_txt}'")
- 
+
 # Verifica se o arquivo foi criado
 if not os.path.exists(arquivo_txt):
     print(f"Erro: O arquivo {arquivo_txt} não foi encontrado!")
@@ -69,7 +69,7 @@ try:
         servidor.starttls()  
         servidor.login(EMAIL_USUARIO, EMAIL_SENHA)
         servidor.send_message(email)
-        print(f"E-mail enviado com sucesso para {destinatario}!")
+        print(f"funcionoooooou, Deus é bom e o diabo é ruim {destinatario}!")
 except Exception as e:
     print(f"Erro ao enviar e-mail: {e}")
  

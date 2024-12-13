@@ -1,12 +1,12 @@
-      Date     Time  esteira1  esteira2  esteira3   Esteira1_Status Esteira2_Status   Esteira3_Status
-2024/11/26 06:35:02         2         1         3             MÉDIO         CRÍTICO     ESTOQUE CHEIO
-2024/11/25 06:34:53         2         1         2             MÉDIO         CRÍTICO             MÉDIO
-2024/11/24 06:34:37         0         1         3 QUEBRADO!!!!!!!!!         CRÍTICO     ESTOQUE CHEIO
-2024/11/23 06:34:21         0         1         0 QUEBRADO!!!!!!!!!         CRÍTICO QUEBRADO!!!!!!!!!
-2024/11/22 06:33:57         0         1         1 QUEBRADO!!!!!!!!!         CRÍTICO           CRÍTICO
-2024/11/21 06:33:48         1         1         1           CRÍTICO         CRÍTICO           CRÍTICO
-2024/11/20 06:33:39         0         1         2 QUEBRADO!!!!!!!!!         CRÍTICO             MÉDIO
-2024/11/19 06:33:24         1         1         2           CRÍTICO         CRÍTICO             MÉDIO
-2024/11/18 06:33:12         1         1         1           CRÍTICO         CRÍTICO           CRÍTICO
-2024/11/17 06:33:00         1         1         2           CRÍTICO         CRÍTICO             MÉDIO
-2024/11/16 06:32:48         1         1         2           CRÍTICO         CRÍTICO             MÉDIO
+      Date     Time  esteira1  esteira2  esteira3 Esteira1_Status Esteira2_Status Esteira3_Status
+2024/11/26 06:35:02         2         1         3           MÉDIO         CRÍTICO   ESTOQUE CHEIO
+2024/11/25 06:34:53         2         1         2           MÉDIO         CRÍTICO           MÉDIO
+2024/11/24 06:34:37         0         1         3      QUEBRADO!!         CRÍTICO   ESTOQUE CHEIO
+2024/11/23 06:34:21         0         1         0      QUEBRADO!!         CRÍTICO      QUEBRADO!!
+2024/11/22 06:33:57         0         1         1      QUEBRADO!!         CRÍTICO         CRÍTICO
+2024/11/21 06:33:48         1         1         1         CRÍTICO         CRÍTICO         CRÍTICO
+2024/11/20 06:33:39         0         1         2      QUEBRADO!!         CRÍTICO           MÉDIO
+2024/11/19 06:33:24         1         1         2         CRÍTICO         CRÍTICO           MÉDIO
+2024/11/18 06:33:12         1         1         1         CRÍTICO         CRÍTICO         CRÍTICO
+2024/11/17 06:33:00         1         1         2         CRÍTICO         CRÍTICO           MÉDIO
+2024/11/16 06:32:48         1         1         2         CRÍTICO         CRÍTICO           MÉDIO
